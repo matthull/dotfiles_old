@@ -6,7 +6,7 @@ if [[ ! -d $HOME/.heroku ]]; then
   fi
 
   if [[ $OSFAMILY == OSX ]]; then
-    warn "Manually install the heroku toolbelt from here: https://toolbelt.herokuapp.com/osx"
+    info "Manually install the heroku toolbelt from here: https://toolbelt.herokuapp.com/osx"
   fi
 
   if [[ $OSFAMILY == Cygwin ]]; then
