@@ -6,7 +6,7 @@ bind-key k select-pane -U
 bind-key l select-pane -R
 
 # Looks
-set-option -g default-terminal "xterm"
+set-option -g default-terminal "screen-256color"
 
 #Bigger scrollback buffer
 set -g history-limit 50000
