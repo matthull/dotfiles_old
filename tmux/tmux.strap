@@ -1,0 +1,9 @@
+if [[ $(which tmux) =~ "not found" ]]; then
+  if [[ $OSFAMILY == OSX ]]; then
+    brew install tmux
+  fi
+
+  if [[ $OSFAMILY == Linux ]]; then
+    sudo apt-get install tmux
+  fi
+fi
