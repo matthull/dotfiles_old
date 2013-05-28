@@ -1,7 +1,7 @@
 # Location of dotfiles
 export DOTFILES=$HOME/.dotfiles
 
-source ./set_os_family.zsh
+source $HOME/.dotfiles/zsh/set_os_family
 
 HISTSIZE=1000
 SAVEHIST=1000

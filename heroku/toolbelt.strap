@@ -9,6 +9,10 @@ if [[ ! -d $HOME/.heroku ]]; then
     warn "Manually install the heroku toolbelt from here: https://toolbelt.herokuapp.com/osx"
   fi
 
+  if [[ $OSFAMILY == Cygwin ]]; then
+    info "Heroku toolbelt standalone not supported on Cygwin (use gem instead)"
+  fi
+
 else
   info "Heroku toolbelt already installed"
 fi

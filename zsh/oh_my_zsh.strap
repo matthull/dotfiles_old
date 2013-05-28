@@ -1,5 +1,5 @@
 if [[ ! -d $HOME/.oh-my-zsh ]]; then
-  curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+  git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
   success "oh-my-zsh installed"
 
 else

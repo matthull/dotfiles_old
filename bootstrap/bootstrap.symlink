@@ -1,4 +1,5 @@
 if [[ ! -d $HOME/.dotfiles ]]; then
+  ln -s $HOME/code/dotfiles $HOME/.dotfiles
 fi
 
 DOTFILES=$HOME/.dotfiles

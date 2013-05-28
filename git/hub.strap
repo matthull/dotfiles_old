@@ -1,5 +1,6 @@
 if [[ ! -d $HOME/bin ]]; then
   mkdir $HOME/bin
+  success "created ~/bin"
 fi
 
 if [[ ! -f $HOME/bin/hub ]]; then
