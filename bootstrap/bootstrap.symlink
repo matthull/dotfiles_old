@@ -26,29 +26,6 @@ fail () {
   #exit
 }
 
-setup_gitconfig () {
-  if [[ ! -f git/gitconfig.symlink ]]
-  then
-
-    if [[ ! -f $HOME/.giconfig ]]
-    then
-      info ".gitconfig already exists, skipping..."
-
-    else
-      info 'setup gitconfig'
-
-      user ' - What is your github author name?'
-      read -e git_authorname
-      user ' - What is your github author email?'
-      read -e git_authoremail
-
-      sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" git/gitconfig.symlink.example > git/gitconfig.symlink
-
-      success 'gitconfig'
-    fi
-  fi
-}
-
 link_files () {
   ln -s $1 $2
   success "linked $1 to $2"
