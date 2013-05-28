@@ -1,0 +1,8 @@
+if [[ ! -d $HOME/bin ]]; then
+  mkdir $HOME/bin
+fi
+
+if [[ ! -f $HOME/bin/hub ]]; then
+  curl http://defunkt.io/hub/standalone -sLo ~/bin/hub
+  chmod +x ~/bin/hub
+fi

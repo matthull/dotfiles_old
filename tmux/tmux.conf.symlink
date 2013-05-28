@@ -1,0 +1,22 @@
+# Vim style pane navigation
+set-window-option -g mode-keys vi
+bind-key h select-pane -L
+bind-key j select-pane -D
+bind-key k select-pane -U
+bind-key l select-pane -R
+
+# Looks
+set-option -g default-terminal "xterm"
+
+#Bigger scrollback buffer
+set -g history-limit 50000
+
+bind | split-window -h
+bind - split-window -v
+
+set -g prefix C-a
+bind-key C-a last-window
+
+set-window-option -g utf8 on
+
+bind r source-file ~/.tmux.conf

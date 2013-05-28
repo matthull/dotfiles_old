@@ -1,0 +1,3 @@
+if [[ ! -d $HOME/.spf13-vim-3 ]]; then
+  sh <(curl http://j.mp/spf13-vim3 -L)
+fi

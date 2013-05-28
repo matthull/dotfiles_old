@@ -1,0 +1,35 @@
+# Location of dotfiles
+export DOTFILES=$HOME/.dotfiles
+
+source ./set_os_family.zsh
+
+HISTSIZE=1000
+SAVEHIST=1000
+HISTFILE=~/.history
+
+# share history between shells and eliminate dupe commands
+setopt sharehistory histignorealldups
+
+# enable fancy globbing
+setopt extendedglob
+
+# prevent dupes in path array
+typeset -U path
+
+# get list of zsh files
+typeset -U config_files
+config_files=($DOTFILES/**/*.zsh)
+
+# Load the path files
+for file in ${(M)config_files:#*/path.zsh}
+do
+  source $file
+done
+
+# Now load everything else
+for file in ${config_files:#*/path.zsh}
+do
+  source $file
+done
+
+unset config_files

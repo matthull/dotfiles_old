@@ -1,0 +1,89 @@
+if [[ ! -d $HOME/.dotfiles ]]; then
+  ln -s $HOME/code/dotfiles $HOME/.dotfiles
+fi
+
+DOTFILES=$HOME/.dotfiles
+
+. $DOTFILES/zsh/set_os_family
+
+setopt extendedglob
+
+info () {
+  printf "  [ \033[00;34m..\033[0m ] $1\n"
+}
+
+user () {
+  printf "\r  [ \033[0;33m?\033[0m ] $1 "
+}
+
+success () {
+  printf "\r\033[2K  [ \033[00;32mOK\033[0m ] $1\n"
+}
+
+fail () {
+  printf "\r\033[2K  [\033[0;31mFAIL\033[0m] $1\n"
+  echo ''
+  #exit
+}
+
+setup_gitconfig () {
+  if [[ ! -f git/gitconfig.symlink ]]
+  then
+
+    if [[ ! -f $HOME/.giconfig ]]
+    then
+      info ".gitconfig already exists, skipping..."
+
+    else
+      info 'setup gitconfig'
+
+      user ' - What is your github author name?'
+      read -e git_authorname
+      user ' - What is your github author email?'
+      read -e git_authoremail
+
+      sed -e "s/AUTHORNAME/$git_authorname/g" -e "s/AUTHOREMAIL/$git_authoremail/g" git/gitconfig.symlink.example > git/gitconfig.symlink
+
+      success 'gitconfig'
+    fi
+  fi
+}
+
+link_files () {
+  ln -s $1 $2
+  success "linked $1 to $2"
+}
+
+install_dotfiles () {
+  info 'installing dotfiles'
+
+  typeset -U linkable_files
+  linkable_files=($DOTFILES/**/*.symlink)
+
+  for source in $linkable_files
+  do
+    dest=$HOME/.$(basename $source .symlink)
+
+    if [[ -f $dest || -d $dest ]]; then
+
+    info "File already exists: ${dest}, skipping..."
+
+    else
+      link_files $source $dest
+    fi
+
+  done
+}
+
+setup_gitconfig
+install_dotfiles
+
+typeset -U strapfiles
+strapfiles=($DOTFILES/**/*.strap)
+
+for source in $strapfiles; do
+  . $source
+done
+
+echo ''
+echo '  All installed!'
