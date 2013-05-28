@@ -5,4 +5,8 @@ fi
 if [[ ! -f $HOME/bin/hub ]]; then
   curl http://defunkt.io/hub/standalone -sLo ~/bin/hub
   chmod +x ~/bin/hub
+  success "hub script installed"
+
+else
+  info "hub script already installed"
 fi

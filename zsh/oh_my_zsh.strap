@@ -1,3 +1,7 @@
 if [[ ! -d $HOME/.oh-my-zsh ]]; then
   curl -L https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh | sh
+  success "oh-my-zsh installed"
+
+else
+  info "oh-my-zsh already installed"
 fi

@@ -1,5 +1,4 @@
 if [[ ! -d $HOME/.dotfiles ]]; then
-  ln -s $HOME/code/dotfiles $HOME/.dotfiles
 fi
 
 DOTFILES=$HOME/.dotfiles
@@ -55,7 +54,7 @@ link_files () {
 }
 
 install_dotfiles () {
-  info 'installing dotfiles'
+  info 'Installing dotfiles'
 
   typeset -U linkable_files
   linkable_files=($DOTFILES/**/*.symlink)
@@ -76,10 +75,15 @@ install_dotfiles () {
 }
 
 setup_gitconfig
+
+echo ''
 install_dotfiles
 
 typeset -U strapfiles
 strapfiles=($DOTFILES/**/*.strap)
+
+echo ''
+info "Installing standard modules"
 
 for source in $strapfiles; do
   . $source
