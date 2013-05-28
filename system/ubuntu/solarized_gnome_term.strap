@@ -1,0 +1,8 @@
+if [[ $OSFAMILY == Linux ]]; then
+  if [[ ! -d $HOME/code/gnome-terminal-colors-solarized ]]; then
+    git clone https://github.com/sigurdga/gnome-terminal-colors-solarized.git $HOME/code/gnome-terminal-colors-solarized
+    $HOME/code/gnome-terminal-colors-solarized/set_dark.sh
+    success "Install solarized for gnome term"
+  fi
+  info "Solarized for gnome term already installed"
+fi
