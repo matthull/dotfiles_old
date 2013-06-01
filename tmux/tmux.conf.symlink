@@ -20,3 +20,7 @@ bind-key C-a last-window
 set-window-option -g utf8 on
 
 bind r source-file ~/.tmux.conf
+
+# Fix for Rubymotion simulator
+# https://github.com/mxcl/homebrew/pull/8016
+set-option -g default-command "reattach-to-user-namespace -l \"$SHELL\""
