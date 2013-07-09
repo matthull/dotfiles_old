@@ -19,3 +19,12 @@ autocmd FileType sh setlocal ts=2 sts=2 sw=2 expandtab
 let g:ctrlp_open_new_file='t'
 
 autocmd BufRead,BufNewFile *.strap setfiletype zsh
+autocmd BufRead,BufNewFile Gemfile setfiletype ruby
+
+let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets-rubymotion/snippets'
+
+:nmap <silent> <Leader>d <Plug>DashGlobalSearch
+
+let g:dash_map = {
+    \ 'ruby' : 'rubymotion'
+    \ }

@@ -1,2 +1,5 @@
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'slim-template/vim-slim'
+Bundle 'rcyrus/snipmate-snippets-rubymotion'
+Bundle 'rizzatti/funcoo.vim'
+Bundle 'rizzatti/dash.vim'
