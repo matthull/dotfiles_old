@@ -1,6 +1,7 @@
 if [[ $(which tmux) =~ "not found" ]]; then
   if [[ $OSFAMILY == OSX ]]; then
     brew install tmux
+    brew install reattach-to-user-namespace
   fi
 
   if [[ $OSFAMILY == Linux ]]; then
