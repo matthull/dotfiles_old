@@ -28,3 +28,5 @@ let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets-rubymotion/
 let g:dash_map = {
     \ 'ruby' : 'rubymotion'
     \ }
+
+nmap <leader>re :NERDTree<cr>
