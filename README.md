@@ -6,7 +6,7 @@ These are my dotfiles, based on Holman's (https://github.com/holman/dotfiles)
 ## Installation
 
 ```sh
-git clone https://github.com/matthull/dotfiles ~/code
+git clone https://github.com/matthull/dotfiles ~/code/dotfiles
 cd ~/code/dotfiles
 source install
 ```
