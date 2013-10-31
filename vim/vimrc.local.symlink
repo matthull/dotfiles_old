@@ -30,3 +30,12 @@ let g:dash_map = {
     \ }
 
 nmap <leader>re :NERDTree<cr>
+
+let maplocalleader=','
+
+let g:rspec_command = 'Dispatch zeus rspec {spec}'
+
+map <Leader>t :call RunCurrentSpecFile()<CR>
+map <Leader>s :call RunNearestSpec()<CR>
+map <Leader>l :call RunLastSpec()<CR>
+map <Leader>a :call RunAllSpecs()<CR>
