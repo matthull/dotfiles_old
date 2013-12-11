@@ -1,3 +1,5 @@
 [user]
 	name = Matt Hull
 	email = matt.hull@lacunasolutionstn.com
+[push]
+	default = simple
