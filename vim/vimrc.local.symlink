@@ -51,7 +51,8 @@ let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec}\n")'
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>"
+"map <Leader>a :call RunAllSpecs()<CR>"
 
 vmap <Leader>tm "ay :call Send_to_Tmux(@a)<CR>
 nmap <Leader>tm "ayy :call Send_to_Tmux(@a)<CR>
+nmap <Leader>ag "ayiw :Ag @a<CR>
