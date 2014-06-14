@@ -1,9 +1,6 @@
+set shell=/bin/sh
 inoremap jk <esc>
 map ; :
-
-"let g:solarized_termtrans=0
-"let g:solarized_contrast="normal"
-"let g:solarized_visibility="normal"
 
 set background=dark
 colorscheme solarized
@@ -29,15 +26,32 @@ let g:dash_map = {
     \ 'ruby' : 'rubymotion'
     \ }
 
-nmap <leader>re :NERDTree<cr>
+nmap <leader>re :NERDTreeFind<cr>
 
 let maplocalleader=','
 
-let g:rspec_command = 'Dispatch zeus rspec {spec}'
+inoremap <leader>. <C-o>A;
 
+nnoremap <silent> <Enter> :nohl<CR>
+
+nmap <silent> <leader>sv :so $MYVIMRC<CR>
+
+set pastetoggle=<leader>p
+
+map <leader>k 15k
+map <leader>j 15j
+
+map <leader>gh :OpenGithubFile<CR>
+
+setlocal isk-=.
+
+let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec}\n")'
+
+" vim-rspec mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
 map <Leader>s :call RunNearestSpec()<CR>
 map <Leader>l :call RunLastSpec()<CR>
-map <Leader>a :call RunAllSpecs()<CR>
+map <Leader>a :call RunAllSpecs()<CR>"
 
-inoremap <leader>. <C-o>A;
+vmap <Leader>tm "ay :call Send_to_Tmux(@a)<CR>
+nmap <Leader>tm "ayy :call Send_to_Tmux(@a)<CR>

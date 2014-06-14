@@ -3,3 +3,5 @@
 	email = matt.hull@lacunasolutionstn.com
 [push]
 	default = simple
+[merge]
+	ff = true
