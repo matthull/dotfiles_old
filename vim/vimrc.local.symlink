@@ -45,7 +45,7 @@ map <leader>gh :OpenGithubFile<CR>
 
 setlocal isk-=.
 
-let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec}\n")'
+let g:rspec_command = 'call Send_to_Tmux("rspec {spec}\n")'
 
 " vim-rspec mappings
 map <Leader>t :call RunCurrentSpecFile()<CR>
@@ -55,4 +55,9 @@ map <Leader>l :call RunLastSpec()<CR>
 
 vmap <Leader>tm "ay :call Send_to_Tmux(@a)<CR>
 nmap <Leader>tm "ayy :call Send_to_Tmux(@a)<CR>
-nmap <Leader>ag "ayiw :Ag @a<CR>
+
+nmap <Leader>ag "ayiw :Ag! <C-r>a<CR>
+let g:aghighlight=1
+
+" Log new issue
+nmap <Leader>li :!open https://github.com/techvalidate/techvalidate/issues/new<CR><CR>
