@@ -1,6 +1,9 @@
 set shell=/bin/sh
 inoremap jk <esc>
+vnoremap jk <esc>
 map ; :
+
+set nocompatible
 
 set background=dark
 colorscheme solarized
@@ -63,3 +66,5 @@ let g:aghighlight=1
 nmap <Leader>li :!open https://github.com/techvalidate/techvalidate/issues/new<CR><CR>
 
 let g:syntastic_ruby_checkers=['mri', 'rubocop']
+
+runtime macros/matchit.vim
