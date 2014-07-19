@@ -61,3 +61,5 @@ let g:aghighlight=1
 
 " Log new issue
 nmap <Leader>li :!open https://github.com/techvalidate/techvalidate/issues/new<CR><CR>
+
+let g:syntastic_ruby_checkers=['mri', 'rubocop']
