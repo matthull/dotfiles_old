@@ -35,7 +35,7 @@ let maplocalleader=','
 
 inoremap <leader>. <C-o>A;
 
-nnoremap <silent> <Enter> :nohl<CR>
+nmap <silent> <Enter> :nohl<CR>
 
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
