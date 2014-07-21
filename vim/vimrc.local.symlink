@@ -41,9 +41,6 @@ nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
 set pastetoggle=<leader>p
 
-map <leader>k 15k
-map <leader>j 15j
-
 map <leader>gh :OpenGithubFile<CR>
 
 setlocal isk-=.
@@ -68,3 +65,12 @@ nmap <Leader>li :!open https://github.com/techvalidate/techvalidate/issues/new<C
 let g:syntastic_ruby_checkers=['mri', 'rubocop']
 
 runtime macros/matchit.vim
+
+let g:EasyMotion_do_mapping = 0
+let g:EasyMotion_smartcase = 1
+
+map <Leader>j <Plug>(easymotion-j)
+map <Leader>k <Plug>(easymotion-k)
+map <Leader>w <Plug>(easymotion-w)
+map s <Plug>(easymotion-s2)
+map t <Plug>(easymotion-t2)
