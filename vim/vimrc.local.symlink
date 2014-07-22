@@ -56,7 +56,7 @@ map <Leader>l :call RunLastSpec()<CR>
 vmap <Leader>tm "ay :call Send_to_Tmux(@a)<CR>
 nmap <Leader>tm "ayy :call Send_to_Tmux(@a)<CR>
 
-nmap <Leader>ag "ayiw :Ag! <C-r>a
+nmap <Leader>ag "ayiw :Ag <C-r>a
 let g:aghighlight=1
 ca Ag Ag!
 
