@@ -5,3 +5,5 @@
 	default = simple
 [merge]
 	ff = true
+[credential]
+	helper = osxkeychain
