@@ -25,4 +25,8 @@ bind r source-file ~/.tmux.conf
 # https://github.com/mxcl/homebrew/pull/8016
 set-option -g default-command "reattach-to-user-namespace -l \"$SHELL\""
 
+# Ctrl-a a sends to beginning of line
 bind a send-prefix
+
+# Clear pane
+bind -n C-k send-keys -R \; clear-history
