@@ -56,9 +56,10 @@ map <Leader>l :call RunLastSpec()<CR>
 vmap <Leader>tm "ay :call Send_to_Tmux(@a)<CR>
 nmap <Leader>tm "ayy :call Send_to_Tmux(@a)<CR>
 
-nmap <Leader>ag "ayiw :Ag <C-r>a
+nmap <Leader>ag "ayiw :Ag <C-r>a<CR>
+nmap <Leader>ae "ayiw :Ag <C-r>a
 let g:aghighlight=1
-ca Ag Ag!
+ca ag Ag!
 
 " Log new issue
 nmap <Leader>li :!open https://github.com/techvalidate/techvalidate/issues/new<CR><CR>
@@ -75,3 +76,9 @@ map <Leader>k <Plug>(easymotion-k)
 map <Leader>w <Plug>(easymotion-w)
 map s <Plug>(easymotion-s2)
 map t <Plug>(easymotion-t2)
+
+let javascript_enable_domhtmlcss = 1
+
+" Search for word under cursor
+nnoremap <Leader>rr :s/\<<C-r><C-w>\>/
+nnoremap <Leader>ra :%s/\<<C-r><C-w>\>/
