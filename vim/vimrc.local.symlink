@@ -82,3 +82,5 @@ let javascript_enable_domhtmlcss = 1
 " Search for word under cursor
 nnoremap <Leader>rr :s/\<<C-r><C-w>\>/
 nnoremap <Leader>ra :%s/\<<C-r><C-w>\>/
+
+nmap <Leader>cp :let @+ = expand("%:p")<CR>
