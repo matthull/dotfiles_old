@@ -48,3 +48,10 @@ zle -N history-beginning-search-forward-end history-search-end
 
 bindkey "^[OA" history-beginning-search-backward-end
 bindkey "^[OB" history-beginning-search-forward-end
+
+export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.2.3
+export PATH=$PATH:$EC2_HOME/bin
+
+export JAVA_HOME=$(/usr/libexec/java_home)
+
+export PATH=./bin:$PATH
