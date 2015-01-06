@@ -1,6 +1,9 @@
 syntax on
 scriptencoding utf-8
 
+let mapleader = ','
+let maplocalleader=','
+
 set shell=/bin/sh
 inoremap jk <esc>
 vnoremap jk <esc>
@@ -132,8 +135,6 @@ let g:dash_map = {
 
 nmap <leader>re :NERDTreeFind<cr>
 
-let mapleader = ','
-let maplocalleader=','
 " Wrapped lines goes down/up to next row, rather than next line in file.
 noremap j gj
 noremap k gk
@@ -212,5 +213,4 @@ set backupdir=~/.vim/tmp,.
 set undodir=~/.vim/tmp,.
 set directory=~/.vim/tmp,.
 
-set autochdir
 let NERDTreeQuitOnOpen = 1
