@@ -15,9 +15,6 @@ set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatib
 set history=1000                    " Store a ton of history (default is 20)
 set spell                           " Spell checking on
 set hidden                          " Allow buffer switching without saving
-set iskeyword-=.                    " '.' is an end of word designator
-set iskeyword-=#                    " '#' is an end of word designator
-set iskeyword-=-                    " '-' is an end of word designator
 
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
 
@@ -214,3 +211,7 @@ set undodir=~/.vim/tmp,.
 set directory=~/.vim/tmp,.
 
 let NERDTreeQuitOnOpen = 1
+
+set iskeyword-=.                    " '.' is an end of word designator
+set iskeyword-=#                    " '#' is an end of word designator
+set iskeyword-=-                    " '-' is an end of word designator
