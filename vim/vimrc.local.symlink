@@ -133,7 +133,7 @@ let g:dash_map = {
 nmap <leader>re :NERDTreeFind<cr>
 
 let mapleader = ','
-let maplocalleader='_'
+let maplocalleader=','
 " Wrapped lines goes down/up to next row, rather than next line in file.
 noremap j gj
 noremap k gk
@@ -209,4 +209,8 @@ nmap <Leader>cp :let @+ = expand("%:p")<CR>
 "let g:airline_powerline_fonts = 1
 
 set backupdir=~/.vim/tmp,.
+set undodir=~/.vim/tmp,.
 set directory=~/.vim/tmp,.
+
+set autochdir
+let NERDTreeQuitOnOpen = 1
