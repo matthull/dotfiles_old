@@ -23,7 +23,6 @@ bind r source-file ~/.tmux.conf
 
 # Fix for Rubymotion simulator
 # https://github.com/mxcl/homebrew/pull/8016
-set-option -g default-command "reattach-to-user-namespace -l \"$SHELL\""
 
 # Ctrl-a a sends to beginning of line
 bind a send-prefix
