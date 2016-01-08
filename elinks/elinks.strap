@@ -1,4 +1,0 @@
-if [[ -d $HOME/.elinks && ! -a $HOME/.elinks/elinks.conf ]]; then
-  info "Installing elinks config"
-  ln -s $HOME/.dotfiles/elinks/elinks.conf $HOME/.elinks/elinks.conf
-fi
