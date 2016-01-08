@@ -63,3 +63,6 @@ source '/Users/matthull/google-cloud-sdk/path.zsh.inc'
 source '/Users/matthull/google-cloud-sdk/completion.zsh.inc'
 
 export PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH
+
+export SCALA_HOME=/usr/local/bin/scala
+export PATH=$PATH:$SCALA_HOME/bin
