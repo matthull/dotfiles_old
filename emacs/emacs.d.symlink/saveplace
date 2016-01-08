@@ -1,5 +1,6 @@
 ;;; -*- coding: utf-8 -*-
-(("/Users/matthull/code/techvalidate/app/notices/notice.rb" . 148)
+(("/Users/matthull/.dotfiles/README.md" . 487)
+ ("/Users/matthull/code/techvalidate/app/notices/notice.rb" . 148)
  ("/Users/matthull/code/techvalidate/app/notices/notice_response_submitted.rb" . 2)
  ("/Users/matthull/code/techvalidate/app/views/vendor_mailer/daily.html.haml" . 3926)
  ("/Users/matthull/code/techvalidate/app/views/admin/batches/show.haml" . 665)
