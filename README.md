@@ -11,6 +11,9 @@ cd ~/code/dotfiles
 source install
 ```
 
+Additionally, iterm preferences are stored in the iterm folder and can be loaded via General->Preferences
+screen in iTerm2.
+
 ## Reloading
 After changing any dotfiles, run the following to reload all scripts and run all installers.
 
