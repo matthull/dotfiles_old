@@ -8,6 +8,8 @@ bind-key l select-pane -R
 # Looks
 set-option -g default-terminal "screen-256color"
 
+set-window-option -g automatic-rename off
+
 #Bigger scrollback buffer
 set -g history-limit 50000
 
