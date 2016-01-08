@@ -1,0 +1,142 @@
+(add-to-list 'load-path "~/.emacs.d/site-lisp")
+
+(setq package-archives '(("gnu" . "http://elpa.gnu.org/packages/")
+			 ("org" . "http://orgmode.org/elpa/")
+			 ("marmalade" . "http://marmalade-repo.org/packages/")
+			 ("melpa-stable" . "http://melpa-stable.milkbox.net/packages/")))
+(require 'package)
+;;(setq package-enable-at-startup nil)
+(package-initialize)
+(require 'cl)
+
+(load-file "~/.emacs.d/site-lisp/tmux-send.el")
+
+(defun require-package (package)
+  (setq-default highlight-tabs t)
+  "Install given PACKAGE."
+  (unless (package-installed-p package)
+    (unless (assoc package package-archive-contents)
+      (package-refresh-contents))
+    (package-install package)))
+
+
+(menu-bar-mode -1)
+
+(helm-mode 1)
+
+(evil-leader/set-key
+  "x" 'execute-extended-command
+  "r" 'load-file
+  "d" 'dired
+  "t" 'tmux-send-line
+)
+
+(if (fboundp 'with-eval-after-load)
+        (defmacro after (feature &rest body)
+	        "After FEATURE is loaded, evaluate BODY."
+		      (declare (indent defun))
+		            `(with-eval-after-load ,feature ,@body))
+    (defmacro after (feature &rest body)
+          "After FEATURE is loaded, evaluate BODY."
+	      (declare (indent defun))
+	          `(eval-after-load ,feature
+		            '(progn ,@body))))
+
+
+;; helm settings (TAB in helm window for actions over selected items,
+;; C-SPC to select items)
+(add-to-list 'load-path "~/code/helm")
+(add-to-list 'load-path "~/code/emacs-async")
+(require 'helm-config)
+(require 'helm-misc)
+(require 'helm-projectile)
+;; (require 'helm-locate)
+;; (require 'helm-buffers)
+;; (setq helm-quick-update t)
+;; (setq helm-bookmark-show-location t)
+;; (setq helm-buffers-fuzzy-matching t)
+
+(projectile-global-mode)
+(setq projectile-completion-system 'helm)
+
+(setq-default tab-width 2 indent-tabs-mode nil)
+(define-key global-map (kbd "RET") 'newline-and-indent)
+
+(setq save-place-file "~/.emacs.d/saveplace")
+(setq-default save-place t)
+(require 'saveplace)
+(custom-set-variables
+ ;; custom-set-variables was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ '(custom-safe-themes
+   (quote
+    ("0c49a9e22e333f260126e4a48539a7ad6e8209ddda13c0310c8811094295b3a3" "ff9e6deb9cfc908381c1267f407b8830bcad6028231a5f736246b9fc65e92b44" default))))
+(custom-set-faces
+ ;; custom-set-faces was added by Custom.
+ ;; If you edit it by hand, you could mess it up, so be careful.
+ ;; Your init file should contain only one such instance.
+ ;; If there is more than one, they won't work right.
+ )
+
+(setq backup-directory-alist
+  `((".*" . ,temporary-file-directory)))
+(setq auto-save-file-name-transforms
+  `((".*" ,temporary-file-directory t)))
+
+(load-file "~/.emacs.d/site-lisp/emacs-open-github-from-here/open-github-from-here.el")
+
+(require 'multiple-cursors)
+(global-set-key (kbd "C-c .") 'mc/mark-next-like-this)
+
+(require 'undo-tree)
+(global-undo-tree-mode)
+
+(require 'evil)
+(require 'evil-surround)
+(global-evil-surround-mode 1)
+(setq evil-leader/in-all-states 1)
+(global-evil-leader-mode)
+(global-evil-tabs-mode t)
+(evil-mode 1)
+(evil-leader/set-leader ",")
+
+(require 'key-chord)
+(key-chord-mode 1)
+
+(key-chord-define evil-insert-state-map "jk" 'evil-normal-state)
+(key-chord-define evil-visual-state-map "jk" 'evil-normal-state)
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-normal-state-map (kbd "C-u") 'evil-scroll-up)
+(define-key evil-visual-state-map (kbd "C-u") 'evil-scroll-up)
+
+(define-key evil-normal-state-map "\C-p" 'helm-projectile)
+
+(setq tab-width 2)
+(setq coffee-tab-width 2)
+
+(load-file "~/.emacs.d/site-lisp/evil-easymotion.el")
+(require 'evil-easymotion)
+
+(load "elscreen" "ElScreen" t)
+(elscreen-start)
+(define-key evil-normal-state-map (kbd "C-w t") 'elscreen-create)
+(define-key evil-normal-state-map (kbd "C-w x") 'elscreen-kill)
+
+(define-key evil-normal-state-map "gT" 'elscreen-previous)
+(define-key evil-normal-state-map "gt" 'elscreen-next)
+
+(define-key evil-normal-state-map (kbd ";") 'evil-ex)
+(define-key evil-visual-state-map (kbd ";") 'evil-ex)
+(define-key evil-motion-state-map (kbd ";") 'evil-ex)
+    
+(add-hook 'ruby-mode-hook
+  (function (lambda ()
+    (setq evil-shift-width ruby-indent-level))))
+(add-hook 'coffee-mode-hook
+  (function (lambda ()
+    (setq evil-shift-width coffee-tab-width))))
+(add-hook 'haml-mode-hook
+  (function (lambda ()
+    (setq evil-shift-width haml-indent-offset))))
