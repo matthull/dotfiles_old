@@ -37,8 +37,6 @@ unset config_files
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
 
-source $HOME/sauce_creds
-
 bindkey -v
 bindkey "^R" history-incremental-search-backward
 autoload -U history-search-end
@@ -48,6 +46,8 @@ zle -N history-beginning-search-forward-end history-search-end
 
 bindkey "^[OA" history-beginning-search-backward-end
 bindkey "^[OB" history-beginning-search-forward-end
+bindkey "^P" history-beginning-search-backward-end
+bindkey "^N" history-beginning-search-forward-end
 
 export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.2.3
 export PATH=$PATH:$EC2_HOME/bin
@@ -56,13 +56,11 @@ export JAVA_HOME=$(/usr/libexec/java_home)
 
 export PATH=./bin:$PATH
 
-# The next line updates PATH for the Google Cloud SDK.
-source '/Users/matthull/google-cloud-sdk/path.zsh.inc'
-
-# The next line enables bash completion for gcloud.
-source '/Users/matthull/google-cloud-sdk/completion.zsh.inc'
-
 export PATH=/Applications/Postgres.app/Contents/Versions/9.3/bin:$PATH
 
 export SCALA_HOME=/usr/local/bin/scala
 export PATH=$PATH:$SCALA_HOME/bin
+export PATH="/Users/matt/anaconda3/bin:$PATH"
+eval "$(rbenv init -)"
+
+alias emacs="emacs -nw"
