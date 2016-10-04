@@ -1,6 +1,6 @@
 [user]
-	name = Matt Hull
-	email = matt@matthull.io
+	name = Matthew Hull
+	email = matthewhull@sparkcentral.com
 [push]
 	default = simple
 [merge]
@@ -10,3 +10,6 @@
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[commit]
+  template = ~/.gitmessage
+ 

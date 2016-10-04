@@ -6,11 +6,29 @@
         evil-delete
         evil-forward-char
         evil-previous-line
+        evil-repeat
         evil-ret
+        evil-shift-right
+        evil-visual-char
         ))
 
 (setq mc/cmds-to-run-once
       '(
+        evil-append
         evil-backward-char
+        evil-backward-word-begin
+        evil-delete-backward-char-and-join
+        evil-delete-char
+        evil-digit-argument-or-evil-beginning-of-line
+        evil-emacs-state
+        evil-end-of-line
+        evil-exit-emacs-state
+        evil-forward-word-begin
+        evil-insert
         evil-next-line
+        evil-normal-state
+        evil-open-below
+        evil-search-next
+        indent-new-comment-line
+        python-indent-dedent-line-backspace
         ))
