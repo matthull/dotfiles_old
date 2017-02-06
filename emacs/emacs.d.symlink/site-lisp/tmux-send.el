@@ -1,5 +1,0 @@
-(defun tmux-send-line ()
-  (interactive)
-  (call-interactively 'evil-yank-line)
-  (let ((cmd (concat "tmux send-keys -t+1 '" (replace-regexp-in-string "\\;" "\;" (replace-regexp-in-string "\n\\'" "" (substring-no-properties (car kill-ring)))) "' " "C-m")))
-    (shell-command-to-string cmd)))

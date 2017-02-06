@@ -1,3 +1,32 @@
+set nocompatible
+filetype off
+
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+
+Plugin 'VundleVim/Vundle.vim'
+
+Plugin 'rking/ag.vim'
+Plugin 'vim-rooter'
+Plugin 'tyru/open-browser.vim'
+Plugin 'tyru/open-browser-github.vim'
+Plugin 'jgdavey/tslime.vim'
+Plugin 'ctrlpvim/ctrlp.vim'
+Plugin 'tacahiroy/ctrlp-funky'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'jpo/vim-railscasts-theme'
+Plugin 'tpope/vim-fugitive'
+Plugin 'vim-airline/vim-airline'
+Plugin 'chriskempson/base16-vim'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/nerdcommenter'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'tpope/vim-surround'
+Plugin 'Valloric/MatchTagAlways'
+
+call vundle#end()
+filetype plugin indent on
+
 if filereadable(glob("~/.vimrc.local"))
     source ~/.vimrc.local
 endif

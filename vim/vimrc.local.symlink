@@ -1,5 +1,9 @@
+filetype on
 syntax on
 scriptencoding utf-8
+filetype plugin on
+
+set number
 
 let mapleader = ','
 let maplocalleader=','
@@ -13,7 +17,6 @@ autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
 set history=1000                    " Store a ton of history (default is 20)
-set spell                           " Spell checking on
 set hidden                          " Allow buffer switching without saving
 
 au FileType gitcommit au! BufEnter COMMIT_EDITMSG call setpos('.', [0, 1, 1, 0])
@@ -30,11 +33,12 @@ augroup resCur
     autocmd BufWinEnter * call ResCur()
 augroup END
 
-set backup                  " Backups are nice ...
+set backup
+
 if has('persistent_undo')
-    set undofile                " So is persistent undo ...
-    set undolevels=1000         " Maximum number of changes that can be undone
-    set undoreload=10000        " Maximum number lines to save for undo on a buffer reload
+    set undofile
+    set undolevels=1000
+    set undoreload=10000
 endif
 
 autocmd BufWinLeave *.* mkview
@@ -42,18 +46,10 @@ autocmd BufWinEnter *.* silent loadview
 
 set clipboard=unnamed
 
-set background=dark
-let g:solarized_termcolors=256
-let g:solarized_termtrans=1
-let g:solarized_contrast="normal"
-let g:solarized_visibility="normal"
-colorscheme solarized
+colorscheme base16-default-dark
 
 set tabpagemax=15               " Only show 15 tabs
 set showmode                    " Display the current mode
-set cursorline                  " Highlight current line
-highlight clear SignColumn      " SignColumn should match background
-highlight clear LineNr          " Current line number row will have same background color in relative mode
 
 set ruler                   " Show the ruler
 set rulerformat=%30(%=\:b%n%y%m%r%w\ %l,%c%V\ %P%) " A ruler on steroids
@@ -100,12 +96,10 @@ set splitright                  " Puts new vsplit windows to the right of the cu
 set splitbelow                  " Puts new split windows to the bottom of the current
 "set matchpairs+=<:>             " Match, to be used with %
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
-"set comments=sl:/*,mb:*,elx:*/  " auto format comment blocks
-" Remove trailing whitespaces and ^M chars
-" To disable the stripping of whitespace, add the following to your
-" .vimrc.before.local file:
-"   let g:spf13_keep_trailing_whitespace = 1
-autocmd FileType c,cpp,java,go,php,javascript,puppet,python,rust,twig,xml,yml,perl,sql autocmd BufWritePre <buffer> if !exists('g:spf13_keep_trailing_whitespace') | call StripTrailingWhitespace() | endif
+
+set swapfile
+set dir=~/tmp
+
 autocmd FileType haskell,puppet,ruby,rb,yml setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
@@ -163,28 +157,16 @@ map <leader>gh :OpenGithubFile<CR>
 
 setlocal isk-=.
 
-let g:rspec_command = 'call Send_to_Tmux("spring rspec {spec}\n")'
-
-" vim-rspec mappings
-map <Leader>t :call RunCurrentSpecFile()<CR>
-map <Leader>s :call RunNearestSpec()<CR>
-map <Leader>l :call RunLastSpec()<CR>
-"map <Leader>a :call RunAllSpecs()<CR>"
-
-vmap <Leader>tm "ay :call Send_to_Tmux(@a)<CR>
-nmap <Leader>tm "ayy :call Send_to_Tmux(@a)<CR>
+vmap <Leader>t "ay :call Send_to_Tmux(@a)<CR>
+nmap <Leader>t "ayy :call Send_to_Tmux(@a)<CR>
 
 nmap <Leader>ag "ayiw :Ag <C-r>a<CR>
 nmap <Leader>ae "ayiw :Ag <C-r>a
-let g:aghighlight=1
+let g:ag_highlight=1
 ca ag Ag!
 
 " Log new issue
 nmap <Leader>li :!open https://github.com/techvalidate/techvalidate/issues/new<CR><CR>
-
-let g:syntastic_ruby_checkers=['mri', 'rubocop']
-
-runtime macros/matchit.vim
 
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
@@ -218,16 +200,6 @@ set iskeyword-=-                    " '-' is an end of word designator
 
 set backspace=indent,eol,start
 
-let g:vim_json_syntax_conceal = 0
-
-function! StripTrailingWhitespace()
-    " Preparation: save last search, and cursor position.
-    let _s=@/
-    let l = line(".")
-    let c = col(".")
-    " Do the business:
-    %s/\s\+$//e
-    " Clean up: restore previous search history, and cursor position
-    let @/=_s
-    call cursor(l, c)
-endfunction
+nnoremap <Leader>fu :CtrlPFunky<Cr>
+" narrow the list down with a word under cursor
+nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>

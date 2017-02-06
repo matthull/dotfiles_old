@@ -7,9 +7,6 @@ bind-key j select-pane -D
 bind-key k select-pane -U
 bind-key l select-pane -R
 
-# Looks
-set-option -g default-terminal "screen-256color"
-
 set-window-option -g automatic-rename off
 
 #Bigger scrollback buffer
