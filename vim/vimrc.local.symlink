@@ -97,9 +97,6 @@ set splitbelow                  " Puts new split windows to the bottom of the cu
 "set matchpairs+=<:>             " Match, to be used with %
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 
-set swapfile
-set dir=~/tmp
-
 autocmd FileType haskell,puppet,ruby,rb,yml setlocal expandtab shiftwidth=2 softtabstop=2
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
@@ -188,9 +185,9 @@ nmap <Leader>cp :let @+ = expand("%:p")<CR>
 " Enable powerline symbols
 "let g:airline_powerline_fonts = 1
 
-set backupdir=~/.vim/tmp,.
-set undodir=~/.vim/tmp,.
-set directory=~/.vim/tmp,.
+set backupdir=~/.vim/tmp//
+set undodir=~/.vim/tmp//
+set directory=~/.vim/tmp//
 
 let NERDTreeQuitOnOpen = 1
 
