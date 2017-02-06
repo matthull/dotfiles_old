@@ -11,11 +11,6 @@ cd ~/code/dotfiles
 source install
 ```
 
-iTerm preferences are stored in the iterm folder and can be loaded via General->Preferences
-screen in iTerm2.
-
-OSX keybindings are found in the hotkeys folder and can be copied or symlinked to /Library/Preferences.
-
 ## Reloading
 After changing any dotfiles, run the following to reload all scripts and run all installers.
 
