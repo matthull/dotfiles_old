@@ -6,7 +6,7 @@ call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
 
-Plugin 'rking/ag.vim'
+Plugin 'mileszs/ack.vim'
 Plugin 'vim-rooter'
 Plugin 'tyru/open-browser.vim'
 Plugin 'tyru/open-browser-github.vim'

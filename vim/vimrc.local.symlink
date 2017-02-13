@@ -5,8 +5,8 @@ filetype plugin on
 
 set number
 
-let mapleader = ','
-let maplocalleader=','
+let mapleader = "\<SPACE>"
+let maplocalleader="\<SPACE>"
 
 set shell=/bin/sh
 inoremap jk <esc>
@@ -47,6 +47,8 @@ autocmd BufWinEnter *.* silent loadview
 set clipboard=unnamed
 
 colorscheme base16-default-dark
+hi Search ctermfg=yellow ctermbg=darkgreen
+hi IncSearch ctermfg=yellow ctermbg=darkgreen
 
 set tabpagemax=15               " Only show 15 tabs
 set showmode                    " Display the current mode
@@ -115,12 +117,6 @@ autocmd BufRead,BufNewFile Gemfile setfiletype ruby
 
 let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets-rubymotion/snippets'
 
-:nmap <silent> <Leader>d <Plug>DashGlobalSearch
-
-let g:dash_map = {
-    \ 'ruby' : 'rubymotion'
-    \ }
-
 nmap <leader>re :NERDTreeFind<cr>
 
 " Wrapped lines goes down/up to next row, rather than next line in file.
@@ -157,13 +153,12 @@ setlocal isk-=.
 vmap <Leader>t "ay :call Send_to_Tmux(@a)<CR>
 nmap <Leader>t "ayy :call Send_to_Tmux(@a)<CR>
 
-nmap <Leader>ag "ayiw :Ag <C-r>a<CR>
-nmap <Leader>ae "ayiw :Ag <C-r>a
+nmap <Leader>ag :LAck!<CR>
+nmap <Leader>ae "ayiw :LAck! <C-r>a
 let g:ag_highlight=1
-ca ag Ag!
 
-" Log new issue
-nmap <Leader>li :!open https://github.com/techvalidate/techvalidate/issues/new<CR><CR>
+nmap <Leader>l :lne<CR>
+nmap <Leader>lp :lpr<CR>
 
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
@@ -197,7 +192,7 @@ set iskeyword-=-                    " '-' is an end of word designator
 
 set backspace=indent,eol,start
 
-nnoremap <Leader>fu :CtrlPFunky<Cr>
+nnoremap <C-f> :CtrlPFunky<Cr>
 " narrow the list down with a word under cursor
 nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 
@@ -212,3 +207,12 @@ au BufNewFile,BufRead *.py set fileformat=unix
 set encoding=utf-8
 
 let python_highlight_all=1
+
+let g:ctrlp_prompt_mappings = {
+    \ 'PrtSelectMove("j")':   ['<c-j>', '<c-n>'],
+    \ 'PrtSelectMove("k")':   ['<c-k>', '<c-p>'],
+    \ 'PrtHistory(-1)':       ['<down>'],
+    \ 'PrtHistory(1)':        ['<up>'],
+    \ }
+
+let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
