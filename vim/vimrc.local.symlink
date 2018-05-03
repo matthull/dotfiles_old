@@ -5,8 +5,8 @@ filetype plugin on
 
 set number
 
-let mapleader = "\<SPACE>"
-let maplocalleader="\<SPACE>"
+let mapleader=" "
+let maplocalleader=" "
 
 set shell=/bin/sh
 inoremap jk <esc>
@@ -144,8 +144,6 @@ nmap <silent> <Enter> :nohl<CR>
 
 nmap <silent> <leader>sv :so $MYVIMRC<CR>
 
-set pastetoggle=<leader>p
-
 map <leader>gh :OpenGithubFile<CR>
 
 setlocal isk-=.
@@ -155,10 +153,10 @@ nmap <Leader>t "ayy :call Send_to_Tmux(@a)<CR>
 
 nmap <Leader>ag :LAck!<CR>
 nmap <Leader>ae "ayiw :LAck! <C-r>a
+nmap <Leader>ad "ayiw :LAck 'def <C-r>a'<CR>
+nmap <Leader>ac "ayiw :LAck 'class <C-r>a'<CR>
 let g:ag_highlight=1
-
-nmap <Leader>l :lne<CR>
-nmap <Leader>lp :lpr<CR>
+ca ag LAck!
 
 let g:EasyMotion_do_mapping = 0
 let g:EasyMotion_smartcase = 1
@@ -169,13 +167,9 @@ map <Leader>w <Plug>(easymotion-w)
 map s <Plug>(easymotion-s2)
 map t <Plug>(easymotion-t2)
 
+map <Leader>r :wa <CR> :.Rails <CR>
+
 let javascript_enable_domhtmlcss = 1
-
-" Search for word under cursor
-nnoremap <Leader>rr :s/\<<C-r><C-w>\>/
-nnoremap <Leader>ra :%s/\<<C-r><C-w>\>/
-
-nmap <Leader>cp :let @+ = expand("%:p")<CR>
 
 " Enable powerline symbols
 "let g:airline_powerline_fonts = 1
@@ -199,7 +193,7 @@ nnoremap <Leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<Cr>
 au BufNewFile,BufRead *.py set tabstop=4
 au BufNewFile,BufRead *.py set softtabstop=4
 au BufNewFile,BufRead *.py set shiftwidth=4
-au BufNewFile,BufRead *.py set textwidth=79
+au BufNewFile,BufRead *.py set textwidth=120
 au BufNewFile,BufRead *.py set expandtab
 au BufNewFile,BufRead *.py set autoindent
 au BufNewFile,BufRead *.py set fileformat=unix
@@ -214,5 +208,21 @@ let g:ctrlp_prompt_mappings = {
     \ 'PrtHistory(-1)':       ['<down>'],
     \ 'PrtHistory(1)':        ['<up>'],
     \ }
+let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
+
+let g:PyFlakeOnWrite = 1
+"let g:PyFlakeCheckers = 'pep8,mccabe,frosted'
+let g:PyFlakeCheckers = 'pep8'
+
+set textwidth=0
+set wrap
+
+au BufNewFile,BufRead *.jinja,*.jinja2 set ft=jinja
+
+let g:syntastic_python_checkers = ['pylint']
+
+au BufNewFile,BufRead *.json.jbuilder set ft=ruby
+
+let g:markdown_fenced_languages = ['html', 'ruby', 'python', 'javascript', 'bash=sh']

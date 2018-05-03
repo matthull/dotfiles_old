@@ -7,7 +7,7 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 
 Plugin 'mileszs/ack.vim'
-Plugin 'vim-rooter'
+Plugin 'airblade/vim-rooter'
 Plugin 'tyru/open-browser.vim'
 Plugin 'tyru/open-browser-github.vim'
 Plugin 'jgdavey/tslime.vim'
@@ -25,7 +25,13 @@ Plugin 'tpope/vim-surround'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'vim-scripts/indentpython.vim'
 Plugin 'scrooloose/syntastic'
-Plugin 'nvie/vim-flake8'
+Plugin 'tpope/vim-unimpaired'
+Plugin 'tpope/vim-repeat'
+Plugin 'raimon49/requirements.txt.vim'
+Plugin 'andviro/flake8-vim'
+Plugin 'lepture/vim-jinja'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-bundler'
 
 call vundle#end()
 filetype plugin indent on
