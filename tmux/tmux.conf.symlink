@@ -26,3 +26,6 @@ bind a send-prefix
 # Clear pane
 bind -n C-k send-keys -R \; clear-history
 set-option -g allow-rename off
+
+set -g default-terminal "xterm-256color"
+set-option -ga terminal-overrides ",xterm-256color:Tc"

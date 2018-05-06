@@ -62,13 +62,12 @@ export PATH="$PATH:/usr/local/opt/yarn/bin"
 
 export PATH="$PATH:`yarn global bin`"
 
-export PATH="$HOME/.rbenv/bin:$PATH"
-eval "$(rbenv init -)"
-workon vitamin
-
 export GOPATH=~/code/cmb-tool
 export PATH="$(go env GOPATH)/bin:$PATH"
 
 export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/10/bin"
 
 source ~/.dotfiles/zsh/zshrc.local
+
+source /usr/local/share/chruby/chruby.sh
+source /usr/local/share/chruby/auto.sh
