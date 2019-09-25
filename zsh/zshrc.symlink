@@ -34,9 +34,6 @@ done
 
 unset config_files
 
-### Added by the Heroku Toolbelt
-export PATH="/usr/local/heroku/bin:$PATH"
-
 bindkey -v
 bindkey "^R" history-incremental-search-backward
 autoload -U history-search-end
@@ -49,23 +46,11 @@ bindkey "^[OB" history-beginning-search-forward-end
 bindkey "^P" history-beginning-search-backward-end
 bindkey "^N" history-beginning-search-forward-end
 
-export EC2_HOME=/usr/local/ec2/ec2-api-tools-1.7.2.3
-export PATH=$PATH:$EC2_HOME/bin
-
 export PATH=./bin:$PATH
-
-export PATH="/Library/PostgreSQL/9.3/bin:$PATH"
-
-export PATH="/home/matt/anaconda2/bin:$PATH"
 
 export PATH="$PATH:/usr/local/opt/yarn/bin"
 
 export PATH="$PATH:`yarn global bin`"
-
-export GOPATH=~/code/cmb-tool
-export PATH="$(go env GOPATH)/bin:$PATH"
-
-export PATH="$PATH:/Applications/Postgres.app/Contents/Versions/10/bin"
 
 source ~/.dotfiles/zsh/zshrc.local
 
@@ -73,9 +58,3 @@ source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
 
 /usr/bin/keychain $HOME/.ssh/cmb_id_rsa
-
-export ARDUINO_PATH=/usr/local/arduino
-
-export PATH="/home/matt/.pyenv/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
