@@ -22,15 +22,15 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'tpope/vim-surround'
-Plugin 'Valloric/MatchTagAlways'
-Plugin 'vim-scripts/indentpython.vim'
-Plugin 'scrooloose/syntastic'
 Plugin 'tpope/vim-unimpaired'
 Plugin 'tpope/vim-repeat'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-bundler'
 Plugin 'morhetz/gruvbox'
 Plugin 'vim-ruby/vim-ruby'
+Plugin 'posva/vim-vue'
+Plugin 'mattn/emmet-vim'
+Plugin 'Valloric/MatchTagAlways'
 
 call vundle#end()
 filetype plugin indent on

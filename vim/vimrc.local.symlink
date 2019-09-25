@@ -13,6 +13,9 @@ inoremap jk <esc>
 vnoremap jk <esc>
 map ; :
 
+noremap <leader>e ^v$h
+vmap <leader>e S=
+
 autocmd BufEnter * if bufname("") !~ "^\[A-Za-z0-9\]*://" | lcd %:p:h | endif
 set shortmess+=filmnrxoOtT          " Abbrev. of messages (avoids 'hit enter')
 set viewoptions=folds,options,cursor,unix,slash " Better Unix / Windows compatibility
@@ -212,14 +215,8 @@ let g:ctrlp_custom_ignore = 'node_modules\|DS_Store\|git'
 
 let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
 
-let g:PyFlakeOnWrite = 1
-"let g:PyFlakeCheckers = 'pep8,mccabe,frosted'
-let g:PyFlakeCheckers = 'pep8'
-
 set textwidth=0
 set wrap
-
-au BufNewFile,BufRead *.jinja,*.jinja2 set ft=jinja
 
 let g:syntastic_python_checkers = ['pylint']
 
@@ -236,3 +233,10 @@ set nolist
 set backupdir=.backup/,~/.backup/,/tmp//
 set directory=.swp/,~/.swp/,/tmp//
 set undodir=.undo/,~/.undo/,/tmp//
+
+let g:airline#extensions#ale#enabled = 1
+
+autocmd FileType html,css,erb EmmetInstall
+let g:user_emmet_leader_key=","
+
+

@@ -71,3 +71,11 @@ source ~/.dotfiles/zsh/zshrc.local
 
 source /usr/local/share/chruby/chruby.sh
 source /usr/local/share/chruby/auto.sh
+
+/usr/bin/keychain $HOME/.ssh/cmb_id_rsa
+
+export ARDUINO_PATH=/usr/local/arduino
+
+export PATH="/home/matt/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
