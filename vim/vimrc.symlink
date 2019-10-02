@@ -31,6 +31,9 @@ Plugin 'vim-ruby/vim-ruby'
 Plugin 'posva/vim-vue'
 Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/MatchTagAlways'
+Plugin 'dylanaraps/wal.vim'
+Plugin 'ngmy/vim-rubocop'
+Plugin 'w0rp/ale'
 
 call vundle#end()
 filetype plugin indent on

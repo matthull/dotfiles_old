@@ -32,18 +32,18 @@ link_files () {
 }
 
 install_dotfiles () {
-  info 'Installing dotfiles'
+  info 'installing dotfiles'
 
-  typeset -U linkable_files
+  typeset -u linkable_files
   linkable_files=($DOTFILES/**/*.symlink)
 
   for source in $linkable_files
   do
-    dest=$HOME/.$(basename $source .symlink)
+    dest=$home/.$(basename $source .symlink)
 
     if [[ -f $dest || -d $dest ]]; then
 
-    info "File already exists: ${dest}, skipping..."
+    info "file already exists: ${dest}, skipping..."
 
     else
       link_files $source $dest
@@ -64,6 +64,25 @@ info "Installing standard modules"
 for source in $strapfiles; do
   . $source
 done
+
+echo ''
+echo 'Installing configs'
+if [[ ! -a ~/.config/compton.conf ]]
+then
+  ln -s $DOTFILES/config/compton.conf ~/.config/compton.conf
+fi
+
+if [[ ! -a ~/.config/i3/config ]]
+then
+  mkdir -p ~/.config/i3
+  ln -s $DOTFILES/config/i3 ~/.config/i3/config
+fi
+
+if [[ ! -a ~/.config/kitty/kitty.conf ]]
+then
+  mkdir -p ~/.config/kitty
+  ln -s $DOTFILES/config/kitty.conf ~/.config/kitty
+fi
 
 echo ''
 echo '  All installed!'
