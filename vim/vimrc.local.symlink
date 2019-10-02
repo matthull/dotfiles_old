@@ -13,6 +13,9 @@ inoremap jk <esc>
 vnoremap jk <esc>
 map ; :
 
+noremap <leader>h ^
+noremap <leader>l $
+
 noremap <leader>e ^v$h
 vmap <leader>e S=
 
@@ -147,7 +150,7 @@ inoremap <leader>. <C-o>A;
 
 nmap <silent> <Enter> :nohl<CR>
 
-nmap <silent> <leader>sv :so $MYVIMRC<CR>
+nmap <silent> <leader>cv :so $MYVIMRC<CR>
 
 map <leader>gh :OpenGithubFile<CR>
 
