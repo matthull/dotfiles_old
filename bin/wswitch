@@ -1,0 +1,4 @@
+#!/bin/zsh
+
+wal --iterative -i ~/.wallpapers
+kswitch

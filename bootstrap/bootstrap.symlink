@@ -84,5 +84,30 @@ then
   ln -s $DOTFILES/config/kitty.conf ~/.config/kitty
 fi
 
+if [[ ! -a ~/.local/bin/kswitch ]]
+then
+  ln -s $DOTFILES/bin/kswitch ~/.local/bin/kswitch
+fi
+
+if [[ ! -a ~/.local/bin/wswitch ]]
+then
+  ln -s $DOTFILES/bin/wswitch ~/.local/bin/wswitch
+fi
+
+if [[ ! -a ~/.local/bin/dock ]]
+then
+  ln -s $DOTFILES/bin/dock ~/.local/bin/dock
+fi
+
+if [[ ! -a ~/.local/bin/compton_start ]]
+then
+  ln -s $DOTFILES/bin/compton_start ~/.local/bin/compton_start
+fi
+
+if [[ ! -a ~/.local/bin/lock ]]
+then
+  ln -s $DOTFILES/bin/lock ~/.local/bin/lock
+fi
+
 echo ''
 echo '  All installed!'

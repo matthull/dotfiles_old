@@ -1,0 +1,28 @@
+#!/bin/zsh
+
+hex2rgb() {
+  hex=${(U)1}
+  echo "processing hex code $hex"
+  a=$(echo $hex | cut -c-2)
+  b=$(echo $hex | cut -c3-4)
+  c=$(echo $hex | cut -c5-6)
+
+  r=$(echo "ibase=16; $a" | bc)
+  g=$(echo "ibase=16; $b" | bc)
+  b=$(echo "ibase=16; $c" | bc)
+
+  echo $r $g $b
+}
+
+while [[ "$REPLY" != "y" ]]
+do
+  colors=( $(shuf -n 3 ~/.cache/wal/colors | tr '\n' ' ') )
+  echo $colors
+  focus-test remote_control 0 0 > /dev/null 2>&1
+  focus-test remote_control 2 $(hex2rgb $colors[1]) > /dev/null 2>&1
+  focus-test remote_control 3 $(hex2rgb $colors[2]) > /dev/null 2>&1
+  focus-test remote_control 4 $(hex2rgb $colors[3]) > /dev/null 2>&1
+  focus-test remote_control 0 1 > /dev/null 2>&1
+
+  read -q
+done

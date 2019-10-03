@@ -1,0 +1,10 @@
+#!/bin/bash
+
+if xrandr | grep -q "HDMI-0 connected"; then
+  echo "Monitors connected. Configuring..."
+  xrandr --output DP-3 --auto --primary
+  xrandr --output HDMI-0 --auto --left-of DP-3
+  xrandr --output DP-0 --off
+else
+  xrandr --output DP-0 --auto
+fi
