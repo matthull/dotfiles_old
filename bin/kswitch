@@ -24,5 +24,6 @@ do
   focus-test remote_control 4 $(hex2rgb $colors[3]) > /dev/null 2>&1
   focus-test remote_control 0 1 > /dev/null 2>&1
 
+  echo "Keep kb colors or regenerate? (y/n)"
   read -q
 done

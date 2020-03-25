@@ -1,4 +1,4 @@
-exec_always --no-startup-id ~/.local/bin/compton_start -b --xrender-sync-fence
+exec_always --no-startup-id ~/.local/bin/compton_start
 
 # It will not be overwritten, so edit it as you like.
 #
@@ -132,7 +132,7 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 # exit i3 (logs you out of your X session)
-bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Really, exit?' -b 'Yes' 'i3-msg exit'"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -206,7 +206,11 @@ gaps inner 12
 gaps outer 0
 
 for_window [title="sxiv"] floating enable
+for_window [class="Matplotlib"] floating enable
 
 exec --no-startup-id ~/.local/bin/dock
 
 workspace_auto_back_and_forth yes
+
+bindsym $mod+Shift+minus move scratchpad
+bindsym $mod+minus scratchpad show

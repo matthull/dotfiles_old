@@ -125,7 +125,7 @@ autocmd BufRead,BufNewFile Gemfile setfiletype ruby
 
 let g:neosnippet#snippets_directory='~/.vim/bundle/snipmate-snippets-rubymotion/snippets'
 
-nmap <leader>re :NERDTreeFind<cr>
+nmap <leader>ne :NERDTreeFind<cr>
 
 " Wrapped lines goes down/up to next row, rather than next line in file.
 noremap j gj
@@ -175,7 +175,8 @@ map <Leader>w <Plug>(easymotion-w)
 map s <Plug>(easymotion-s2)
 map t <Plug>(easymotion-t2)
 
-map <Leader>r :wa <CR> :.Rails <CR>
+"map <Leader>r :wa <CR> :.Rails <CR>
+nnoremap <Leader>r yiw:%s/\<<C-r><C-w>\>//g<left><left>
 
 let javascript_enable_domhtmlcss = 1
 
@@ -243,6 +244,7 @@ set undodir=.undo/,~/.undo/,/tmp//
 let g:ale_linters = {
 \   'javascript': ['eslint'],
 \   'ruby': ['rubocop'],
+\    'python': ['black']
 \}
 
 let g:ale_linters_explicit = 1
@@ -253,10 +255,22 @@ let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
 let g:ale_ruby_rubocop_options = "-l"
 
-autocmd FileType html,css EmmetInstall
-let g:user_emmet_leader_key=","
+"autocmd FileType html,css EmmetInstall
+"let g:user_emmet_leader_key=","
 
 
 let g:ctrlp_custom_ignore='pythonenv\|node_modules\|tmp'
 
 colorscheme wal
+
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
+
+let g:black_virtualenv="~/.venv_black"
+autocmd BufWritePre *.py execute ':Black'
