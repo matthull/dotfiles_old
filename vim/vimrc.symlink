@@ -36,7 +36,9 @@ Plugin 'ngmy/vim-rubocop'
 Plugin 'w0rp/ale'
 Plugin 'vim-syntastic/syntastic'
 Plugin 'ycm-core/YouCompleteMe'
-Plugin 'psf/black'
+Plugin 'psf/black', { 'tag': '19.10b0' }
+Plugin 'nvie/vim-flake8'
+Plugin 'jiangmiao/auto-pairs'
 
 call vundle#end()
 filetype plugin indent on

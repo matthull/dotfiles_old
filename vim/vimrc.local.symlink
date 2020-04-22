@@ -99,15 +99,15 @@ set nowrap                      " Do not wrap long lines
 set autoindent                  " Indent at the same level of the previous line
 set shiftwidth=2                " Use indents of 4 spaces
 set expandtab                   " Tabs are spaces, not tabs
-set tabstop=2                   " An indentation every four columns
-set softtabstop=2               " Let backspace delete indent
+set tabstop=4                   " An indentation every four columns
+set softtabstop=4               " Let backspace delete indent
 set nojoinspaces                " Prevents inserting two spaces after punctuation on a join (J)
 set splitright                  " Puts new vsplit windows to the right of the current
 set splitbelow                  " Puts new split windows to the bottom of the current
 "set matchpairs+=<:>             " Match, to be used with %
 set pastetoggle=<F12>           " pastetoggle (sane indentation on pastes)
 
-autocmd FileType haskell,puppet,ruby,rb,yml setlocal expandtab shiftwidth=2 softtabstop=2
+autocmd FileType haskell,puppet,ruby,rb,yml setlocal expandtab shiftwidth=2 softtabstop=2 tabstop=2
 autocmd BufNewFile,BufRead *.coffee set filetype=coffee
 
 autocmd FileType html setlocal ts=2 sts=2 sw=2 expandtab
@@ -148,7 +148,8 @@ vnoremap > >gv
 
 inoremap <leader>. <C-o>A;
 
-nmap <silent> <Enter> :nohl<CR>
+"nmap <silent> <Enter> :nohl<CR>
+nnoremap <silent> <expr> <CR> &buftype ==# 'quickfix' ? "\<CR>" : ':nohl<CR>'
 
 nmap <silent> <leader>cv :so $MYVIMRC<CR>
 
@@ -274,3 +275,18 @@ colorscheme wal
 
 let g:black_virtualenv="~/.venv_black"
 autocmd BufWritePre *.py execute ':Black'
+
+let g:black_skip_string_normalization=1
+
+let g:flake8_show_in_gutter=0
+let g:flake8_show_quickfix=0
+let g:flake8_show_in_file=0
+let g:flake8_quickfix_height=8
+autocmd BufWritePost *.py call flake8#Flake8()
+
+autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
+
+set clipboard=unnamedplus
+
+nmap <C-l> :YcmCompleter GoTo<CR>
+noremap <leader>d :YcmCompleter GetDoc<CR>
