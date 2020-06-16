@@ -78,6 +78,5 @@ source ~/.cache/wal/colors-tty.sh
 eval "$(direnv hook zsh)"
 
 eval "$(ssh-agent)"
-ssh-add ~/.ssh/attention_development.pem
 
 alias pydoc='python -m pydoc'

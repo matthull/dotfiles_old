@@ -39,6 +39,9 @@ Plugin 'ycm-core/YouCompleteMe'
 Plugin 'psf/black', { 'tag': '19.10b0' }
 Plugin 'nvie/vim-flake8'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'MaxMEllon/vim-jsx-pretty'
+Plugin 'tpope/vim-abolish'
 
 call vundle#end()
 filetype plugin indent on

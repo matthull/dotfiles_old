@@ -279,7 +279,7 @@ autocmd BufWritePre *.py execute ':Black'
 let g:black_skip_string_normalization=1
 
 let g:flake8_show_in_gutter=0
-let g:flake8_show_quickfix=0
+let g:flake8_show_quickfix=1
 let g:flake8_show_in_file=0
 let g:flake8_quickfix_height=8
 autocmd BufWritePost *.py call flake8#Flake8()
@@ -290,3 +290,6 @@ set clipboard=unnamedplus
 
 nmap <C-l> :YcmCompleter GoTo<CR>
 noremap <leader>d :YcmCompleter GetDoc<CR>
+
+" set filetypes as typescript.tsx
+autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
