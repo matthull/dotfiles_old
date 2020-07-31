@@ -170,7 +170,7 @@ bar {
 
 bindsym $mod+p move workspace to output right
 bindsym $mod+n focus output right
-bindsym $mod+b exec --no-startup-id firefox
+bindsym $mod+b exec --no-startup-id google-chrome
 
 assign [class="^Slack$"] → 9
 

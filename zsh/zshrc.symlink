@@ -80,3 +80,10 @@ eval "$(direnv hook zsh)"
 eval "$(ssh-agent)"
 
 alias pydoc='python -m pydoc'
+
+export PYTHONBUFFERED=1
+export REDIS_HOST=127.0.0.1
+export NO_CACHE=True
+export ES_HOST=https://search-mirasearch-staging-vpe7wdnygpdtxssjnsmknhwhgu.us-west-2.es.amazonaws.com
+
+PATH=$PATH:$HOME/.cargo/bin
