@@ -56,11 +56,8 @@ export PATH="$PATH:`yarn global bin`"
 
 source ~/.dotfiles/zsh/zshrc.local
 
-source /usr/local/share/chruby/chruby.sh
-source /usr/local/share/chruby/auto.sh
-
-/usr/bin/keychain $HOME/.ssh/cmb_id_rsa
-/usr/bin/keychain $HOME/.ssh/rs
+ssh-add $HOME/.ssh/id_rsa.industrycorps
+ssh-add $HOME/.ssh/id_rsa
 
 source ~/.fonts/*.sh
 
@@ -77,7 +74,7 @@ source ~/.cache/wal/colors-tty.sh
 
 eval "$(direnv hook zsh)"
 
-eval "$(ssh-agent)"
+#eval "$(ssh-agent)"
 
 alias pydoc='python -m pydoc'
 
@@ -87,3 +84,12 @@ export NO_CACHE=True
 export ES_HOST=https://search-mirasearch-staging-vpe7wdnygpdtxssjnsmknhwhgu.us-west-2.es.amazonaws.com
 
 PATH=$PATH:$HOME/.cargo/bin
+eval "$(direnv hook zsh)"
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"
+
+export PATH="$HOME/.poetry/bin:$PATH"
+
+alias aws="PAGER=cat aws"

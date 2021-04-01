@@ -26,6 +26,8 @@ fail () {
   #exit
 }
 
+mkdir -p $HOME/.local/bin
+
 link_files () {
   ln -s $1 $2
   success "linked $1 to $2"
@@ -39,7 +41,7 @@ install_dotfiles () {
 
   for source in $linkable_files
   do
-    dest=$home/.$(basename $source .symlink)
+    dest=$HOME/.$(basename $source .symlink)
 
     if [[ -f $dest || -d $dest ]]; then
 
@@ -107,6 +109,15 @@ fi
 if [[ ! -a ~/.local/bin/lock ]]
 then
   ln -s $DOTFILES/bin/lock ~/.local/bin/lock
+fi
+
+if [[ ! -L /etc/regolith/i3/config ]]
+then
+  echo "Regolith i3 config not yet symlinked"
+  echo "Backing up existing config"
+  sudo mv /etc/regolith/i3/config /etc/regolith/i3/config.orig
+  echo "Symlinking in our config"
+  sudo ln -s $DOTFILES/config/i3 /etc/regolith/i3/config
 fi
 
 echo ''

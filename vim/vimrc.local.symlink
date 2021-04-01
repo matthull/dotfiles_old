@@ -159,6 +159,10 @@ setlocal isk-=.
 
 vmap <Leader>t "ay :call Send_to_Tmux(@a)<CR>
 nmap <Leader>t "ayy :call Send_to_Tmux(@a)<CR>
+vmap <Leader>x "ay :call Send_to_Tmux("%cpaste")<CR> \| :call Send_to_Tmux("C-m")<CR> \| :call Send_to_Tmux(@a)<CR> \| :call Send_to_Tmux("C-d")<CR>
+let g:tslime_always_current_session = 1
+let g:tslime_always_current_window = 1
+let g:tslime_autoset_pane = 1
 
 nmap <Leader>ag :LAck!<CR>
 nmap <Leader>ae "ayiw :LAck! <C-r>a
@@ -188,7 +192,8 @@ set backupdir=~/.vim/tmp//
 set undodir=~/.vim/tmp//
 set directory=~/.vim/tmp//
 
-let NERDTreeQuitOnOpen = 1
+let NERDTreeQuitOnOpen = 0
+let NERDTreeIgnore = ['\.pyc$']
 
 set iskeyword-=.                    " '.' is an end of word designator
 set iskeyword-=#                    " '#' is an end of word designator
@@ -225,7 +230,7 @@ let g:ackprg = 'ag --nogroup --nocolor --column --smart-case'
 set textwidth=0
 set wrap
 
-let g:syntastic_python_checkers = ['pylint']
+"let g:syntastic_python_checkers = ['pylint']
 
 au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 
@@ -242,11 +247,11 @@ set directory=.swp/,~/.swp/,/tmp//
 set undodir=.undo/,~/.undo/,/tmp//
 
 " Set specific linters
-let g:ale_linters = {
-\   'javascript': ['eslint'],
-\   'ruby': ['rubocop'],
-\    'python': ['black']
-\}
+"let g:ale_linters = {
+"\   'javascript': ['eslint'],
+"\   'ruby': ['rubocop'],
+"\    'python': ['black']
+"\}
 
 let g:ale_linters_explicit = 1
 
@@ -274,14 +279,14 @@ colorscheme wal
 "let g:syntastic_check_on_wq = 0
 
 let g:black_virtualenv="~/.venv_black"
-"autocmd BufWritePre *.py execute ':Black'
+autocmd BufWritePre *.py execute ':Black'
 
-let g:black_skip_string_normalization=1
+"let g:black_skip_string_normalization=1
 
-let g:flake8_show_in_gutter=0
-let g:flake8_show_quickfix=1
-let g:flake8_show_in_file=0
-let g:flake8_quickfix_height=8
+"let g:flake8_show_in_gutter=0
+"let g:flake8_show_quickfix=1
+"let g:flake8_show_in_file=0
+"let g:flake8_quickfix_height=8
 "autocmd BufWritePost *.py call flake8#Flake8()
 
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
