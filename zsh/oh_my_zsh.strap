@@ -1,7 +1,6 @@
 if [[ ! -d $HOME/.oh-my-zsh ]]; then
-  git clone https://github.com/robbyrussell/oh-my-zsh.git $HOME/.oh-my-zsh
+  sh -c "$(curl -fsSL https://raw.github.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
   success "oh-my-zsh installed"
-
 else
   info "oh-my-zsh already installed"
 fi

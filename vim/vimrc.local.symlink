@@ -261,33 +261,23 @@ let g:ale_sign_column_always = 1
 let g:ale_set_highlights = 0
 let g:ale_ruby_rubocop_options = "-l"
 
-"autocmd FileType html,css EmmetInstall
-"let g:user_emmet_leader_key=","
-
+autocmd FileType html,css,svelte EmmetInstall
+let g:user_emmet_expandabbr_key = '<c-e>'
 
 let g:ctrlp_custom_ignore='pythonenv\|node_modules\|tmp'
 
 colorscheme wal
-
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
 
 let g:black_virtualenv="~/.venv_black"
 autocmd BufWritePre *.py execute ':Black'
 
 "let g:black_skip_string_normalization=1
 
-"let g:flake8_show_in_gutter=0
-"let g:flake8_show_quickfix=1
-"let g:flake8_show_in_file=0
-"let g:flake8_quickfix_height=8
-"autocmd BufWritePost *.py call flake8#Flake8()
+let g:flake8_show_in_gutter=1
+let g:flake8_show_quickfix=1
+let g:flake8_show_in_file=0
+let g:flake8_quickfix_height=8
+autocmd BufWritePost *.py call flake8#Flake8()
 
 autocmd BufReadPost quickfix nnoremap <buffer> <CR> <CR>
 
@@ -297,4 +287,31 @@ nmap <C-l> :YcmCompleter GoTo<CR>
 noremap <leader>d :YcmCompleter GetDoc<CR>
 
 " set filetypes as typescript.tsx
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+"autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescript.tsx
+
+
+" Prettier Settings
+"let g:prettier#quickfix_enabled = 0
+"let g:prettier#autoformat_require_pragma = 0
+"au BufWritePre *.css,*.svelte,*.pcss,*.html,*.ts,*.js,*.json PrettierAsync
+
+let g:svelte_preprocessors = ['typescript']
+let g:svelte_preprocessor_tags = [{ 'name': 'postcss', 'tag': 'style', 'as': 'scss'}]
+let g:svelte_preprocessors = ['postcss']
+let b:ale_fixers = ['prettier', 'eslint']
+let g:ale_fix_on_save = 1
+
+function! s:disable_coc_for_type()
+  if index(g:coc_filetypes_enable, &filetype) == -1
+    :silent! CocDisable
+  else
+    :silent! CocEnable
+  endif
+endfunction
+
+augroup CocGroup
+ autocmd!
+ autocmd BufNew,BufEnter,BufAdd,BufCreate * call s:disable_coc_for_type()
+augroup end
+
+let g:coc_filetypes_enable = [ 'js', 'ts', 'svelte' ]

@@ -33,8 +33,6 @@ Plugin 'mattn/emmet-vim'
 Plugin 'Valloric/MatchTagAlways'
 Plugin 'dylanaraps/wal.vim'
 Plugin 'ngmy/vim-rubocop'
-Plugin 'w0rp/ale'
-Plugin 'vim-syntastic/syntastic'
 Plugin 'ycm-core/YouCompleteMe'
 Plugin 'psf/black', { 'branch': 'stable' }
 Plugin 'nvie/vim-flake8'
@@ -44,6 +42,12 @@ Plugin 'MaxMEllon/vim-jsx-pretty'
 Plugin 'tpope/vim-abolish'
 Plugin 'chr4/nginx.vim'
 Plugin 'cespare/vim-toml'
+Plugin 'evanleck/vim-svelte'
+Plugin 'HerringtonDarkholme/yats.vim'
+Plugin 'dense-analysis/ale'
+Plugin 'prettier/vim-prettier', {'do': 'npm install'}
+Plugin 'neoclide/coc.nvim', {'branch': 'release'}
+Plugin 'codechips/coc-svelte', {'do': 'npm install'}
 
 call vundle#end()
 filetype plugin indent on

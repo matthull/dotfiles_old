@@ -1,3 +1,5 @@
+fpath=($HOME/completion_zsh $fpath)
+
 # Location of dotfiles
 export DOTFILES=$HOME/.dotfiles
 
@@ -59,7 +61,7 @@ source ~/.dotfiles/zsh/zshrc.local
 ssh-add $HOME/.ssh/id_rsa.industrycorps
 ssh-add $HOME/.ssh/id_rsa
 
-source ~/.fonts/*.sh
+#source ~/.fonts/*.sh
 
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
@@ -67,7 +69,7 @@ source ~/.fonts/*.sh
 (cat ~/.cache/wal/sequences &)
 
 # Alternative (blocks terminal for 0-3ms)
-cat ~/.cache/wal/sequences
+#cat ~/.cache/wal/sequences
 
 # To add support for TTYs this line can be optionally added.
 source ~/.cache/wal/colors-tty.sh
@@ -93,3 +95,18 @@ export NVM_DIR="$HOME/.nvm"
 export PATH="$HOME/.poetry/bin:$PATH"
 
 alias aws="PAGER=cat aws"
+
+ZSH_THEME="fishy"
+
+wal -R
+
+autoload bashcompinit && bashcompinit
+autoload -Uz compinit && compinit
+compinit
+
+complete -C '/usr/local/bin/aws_completer' aws
+
+source /etc/bash_completion.d/azure-cli
+export PATH=$PATH:/opt/mssql-tools/bin
+
+export PATH=$PATH:~/.platformio/penv/bin

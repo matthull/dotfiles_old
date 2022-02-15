@@ -74,7 +74,7 @@ set_from_resource $ws19 i3-wm.workspace.19.name "19"
 ## Launch // Terminal // <> Enter ##
 bindsym $mod+Return exec /usr/bin/x-terminal-emulator
 
-## Launch // Browser // <><Shift> Enter ##
+## Launch // Browser // <> b##
 bindsym $mod+b exec gtk-launch $(xdg-settings get default-web-browser)
 
 set_from_resource $rofiTheme rofi.theme /etc/regolith/styles/lascaille/rofi.rasi
@@ -524,3 +524,5 @@ exec --no-startup-id $i3-wm.program.3
 exec --no-startup-id wal -R
 exec --no-startup-id xset r rate 200 30
 exec --no-startup-id unclutter &
+
+exec --no-startup-id xmodmap ~/.xmodmap

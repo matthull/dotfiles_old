@@ -1,0 +1,22 @@
+#!/bin/bash
+
+sudo apt update
+
+sudo apt install -y gcc make pkg-config libx11-dev libxtst-dev libxi-dev
+sudo apt install -y build-essential libncursesw5-dev libreadline-gplv2-dev libssl-dev libgdbm-dev
+
+sudo apt install -y libc6-dev libsqlite3-dev libbz2-dev libffi-dev libz-dev
+sudo apt install -y snapd
+
+sudo apt install -y kitty xcape vim zsh imagemagick direnv
+sudo update-alternatives --set x-terminal-emulator /usr/bin/kitty
+chsh -s /bin/zsh
+
+sudo apt install -y cmake vim-nox
+sudo apt install -y mono-complete golang default-jdk
+sudo apt install -y nodejs npm
+sudo apt install -y python3-pip
+sudo apt install -y python3-dev python3-setuptools python3-venv libyaml-dev
+sudo npm install --global yarn
+
+pip3 install --user black

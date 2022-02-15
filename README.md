@@ -6,9 +6,23 @@ These are my dotfiles, based on Holman's (https://github.com/holman/dotfiles)
 ## Installation
 
 ```sh
-git clone https://github.com/matthull/dotfiles ~/code/dotfiles
+sudo apt install git
+git clone https://github.com/matthull/dotfiles.git ~/code/dotfiles
 cd ~/code/dotfiles
-source install
+./basics
+./install
+./apps
+```
+
+## Apps to install manually
+[https://vivaldi.com/download/]
+Go to Settings->Default Applications and change browser to vivaldi
+
+Open vim and run `:VundleInstall`
+
+```
+cd ~/.vim/bundle/YouCompleteMe
+python3 install.py --all
 ```
 
 ## Reloading
