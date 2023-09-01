@@ -27,5 +27,5 @@ bind a send-prefix
 bind -n C-k send-keys -R \; clear-history
 set-option -g allow-rename off
 
-set -g default-terminal "screen-256color"
+set -g default-terminal "xterm-kitty"
 set-option -sa terminal-overrides ",xterm-kitty:RGB"

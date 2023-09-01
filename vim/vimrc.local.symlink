@@ -237,8 +237,8 @@ au BufNewFile,BufRead *.json.jbuilder set ft=ruby
 let g:markdown_fenced_languages = ['html', 'ruby', 'python', 'javascript', 'bash=sh']
 
 set termguicolors
-"colorscheme gruvbox
-"set background=dark
+colorscheme gruvbox
+set background=dark
 
 set nolist
 
@@ -266,7 +266,7 @@ let g:user_emmet_expandabbr_key = '<c-e>'
 
 let g:ctrlp_custom_ignore='pythonenv\|node_modules\|tmp'
 
-colorscheme wal
+"colorscheme wal
 
 let g:black_virtualenv="~/.venv_black"
 autocmd BufWritePre *.py execute ':Black'
@@ -300,18 +300,3 @@ let g:svelte_preprocessor_tags = [{ 'name': 'postcss', 'tag': 'style', 'as': 'sc
 let g:svelte_preprocessors = ['postcss']
 let b:ale_fixers = ['prettier', 'eslint']
 let g:ale_fix_on_save = 1
-
-function! s:disable_coc_for_type()
-  if index(g:coc_filetypes_enable, &filetype) == -1
-    :silent! CocDisable
-  else
-    :silent! CocEnable
-  endif
-endfunction
-
-augroup CocGroup
- autocmd!
- autocmd BufNew,BufEnter,BufAdd,BufCreate * call s:disable_coc_for_type()
-augroup end
-
-let g:coc_filetypes_enable = [ 'js', 'ts', 'svelte' ]

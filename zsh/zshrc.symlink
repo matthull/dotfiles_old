@@ -50,43 +50,28 @@ bindkey "^N" history-beginning-search-forward-end
 
 export PATH=./bin:$PATH
 
-export PATH="$PATH:/usr/local/opt/yarn/bin"
-
 export PATH="./pythonenv/bin:$PATH"
 
-export PATH="$PATH:`yarn global bin`"
-
 source ~/.dotfiles/zsh/zshrc.local
-
-ssh-add $HOME/.ssh/id_rsa.industrycorps
-ssh-add $HOME/.ssh/id_rsa
 
 #source ~/.fonts/*.sh
 
 # Import colorscheme from 'wal' asynchronously
 # &   # Run the process in the background.
 # ( ) # Hide shell job control messages.
-(cat ~/.cache/wal/sequences &)
+#(cat ~/.cache/wal/sequences &)
 
 # Alternative (blocks terminal for 0-3ms)
 #cat ~/.cache/wal/sequences
 
 # To add support for TTYs this line can be optionally added.
-source ~/.cache/wal/colors-tty.sh
-
-eval "$(direnv hook zsh)"
+#source ~/.cache/wal/colors-tty.sh
 
 #eval "$(ssh-agent)"
 
 alias pydoc='python -m pydoc'
 
-export PYTHONBUFFERED=1
 export REDIS_HOST=127.0.0.1
-export NO_CACHE=True
-export ES_HOST=https://search-mirasearch-staging-vpe7wdnygpdtxssjnsmknhwhgu.us-west-2.es.amazonaws.com
-
-PATH=$PATH:$HOME/.cargo/bin
-eval "$(direnv hook zsh)"
 
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"
@@ -98,15 +83,13 @@ alias aws="PAGER=cat aws"
 
 ZSH_THEME="fishy"
 
-wal -R
+#wal -R
 
 autoload bashcompinit && bashcompinit
 autoload -Uz compinit && compinit
 compinit
 
 complete -C '/usr/local/bin/aws_completer' aws
-
-source /etc/bash_completion.d/azure-cli
-export PATH=$PATH:/opt/mssql-tools/bin
-
-export PATH=$PATH:~/.platformio/penv/bin
+source /usr/local/share/chruby/chruby.sh
+export COMPOSE_FILE=~/code/musashi/docker-compose-full.yml
+export PATH=/home/matt/.poetry/bin:./pythonenv/bin:./bin:/home/matt/.local/bin:/home/matt/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/home/matt/.cargo/bin:/home/matt/.local/kitty.app/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin

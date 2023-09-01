@@ -14,7 +14,6 @@ Plugin 'jgdavey/tslime.vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tacahiroy/ctrlp-funky'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'jpo/vim-railscasts-theme'
 Plugin 'tpope/vim-fugitive'
 Plugin 'vim-airline/vim-airline'
 Plugin 'chriskempson/base16-vim'
@@ -46,8 +45,6 @@ Plugin 'evanleck/vim-svelte'
 Plugin 'HerringtonDarkholme/yats.vim'
 Plugin 'dense-analysis/ale'
 Plugin 'prettier/vim-prettier', {'do': 'npm install'}
-Plugin 'neoclide/coc.nvim', {'branch': 'release'}
-Plugin 'codechips/coc-svelte', {'do': 'npm install'}
 
 call vundle#end()
 filetype plugin indent on
