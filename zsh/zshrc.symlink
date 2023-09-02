@@ -93,3 +93,6 @@ complete -C '/usr/local/bin/aws_completer' aws
 source /usr/local/share/chruby/chruby.sh
 export COMPOSE_FILE=~/code/musashi/docker-compose-full.yml
 export PATH=/home/matt/.poetry/bin:./pythonenv/bin:./bin:/home/matt/.local/bin:/home/matt/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/home/matt/.cargo/bin:/home/matt/.local/kitty.app/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin
+
+chruby ruby 3.0.6
+alias vim=lvim
