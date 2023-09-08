@@ -1,2 +1,2 @@
-! alt=64
-! ctrl=37
+keycode 64 = Alt_L Alt_L Alt_L Alt_L
+keycode 37 = Control_L Control_L Control_L

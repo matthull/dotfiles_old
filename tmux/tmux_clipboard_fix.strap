@@ -1,9 +1,0 @@
-# Package need to fix issue with tmux and clipboard on OSX
-if [[ $OSFAMILY == OSX ]]; then
-  if [[ %(which reattach-to-user-namespace) =~ "not found" ]]; then
-    brew install reattach-to-user-namespace
-    success "reattach-to-user-namespace installed"
-  else
-    info "reattach-to-user-namespace already installed, skipping..."
-  fi
-fi

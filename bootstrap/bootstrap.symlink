@@ -4,8 +4,6 @@ fi
 
 DOTFILES=$HOME/.dotfiles
 
-. $DOTFILES/zsh/set_os_family
-
 setopt extendedglob
 
 info () {
@@ -67,23 +65,18 @@ for source in $strapfiles; do
   . $source
 done
 
-echo ''
-echo 'Installing configs'
-if [[ ! -a ~/.config/compton.conf ]]
-then
-  ln -s $DOTFILES/config/compton.conf ~/.config/compton.conf
-fi
-
-if [[ ! -a ~/.config/i3/config ]]
-then
-  mkdir -p ~/.config/i3
-  ln -s $DOTFILES/config/i3 ~/.config/i3/config
-fi
-
 if [[ ! -a ~/.config/kitty/kitty.conf ]]
 then
   mkdir -p ~/.config/kitty
   ln -s $DOTFILES/config/kitty.conf ~/.config/kitty
+  success "Installed kitty config"
+fi
+
+if [[ ! -a ~/.config/lvim/config.lua ]]
+then
+  mkdir -p ~/.config/lvim
+  ln -s $DOTFILES/vim/config.lua ~/.config/lvim
+  success "Installed lunarvim config.lua"
 fi
 
 if [[ ! -a ~/.local/bin/kswitch ]]
@@ -99,25 +92,6 @@ fi
 if [[ ! -a ~/.local/bin/dock ]]
 then
   ln -s $DOTFILES/bin/dock ~/.local/bin/dock
-fi
-
-if [[ ! -a ~/.local/bin/compton_start ]]
-then
-  ln -s $DOTFILES/bin/compton_start ~/.local/bin/compton_start
-fi
-
-if [[ ! -a ~/.local/bin/lock ]]
-then
-  ln -s $DOTFILES/bin/lock ~/.local/bin/lock
-fi
-
-if [[ ! -L /etc/regolith/i3/config ]]
-then
-  echo "Regolith i3 config not yet symlinked"
-  echo "Backing up existing config"
-  sudo mv /etc/regolith/i3/config /etc/regolith/i3/config.orig
-  echo "Symlinking in our config"
-  sudo ln -s $DOTFILES/config/i3 /etc/regolith/i3/config
 fi
 
 echo ''

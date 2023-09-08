@@ -1,7 +1,0 @@
-#!/bin/bash
-
-if [ $(system76-power graphics) != "intel" ]; then
-  killall compton
-  sleep 1
-  compton -b --xrender-sync-fence
-fi

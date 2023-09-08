@@ -3,8 +3,6 @@ fpath=($HOME/completion_zsh $fpath)
 # Location of dotfiles
 export DOTFILES=$HOME/.dotfiles
 
-source $HOME/.dotfiles/zsh/set_os_family
-
 HISTSIZE=1000
 SAVEHIST=1000
 HISTFILE=~/.history
@@ -52,23 +50,6 @@ export PATH=./bin:$PATH
 
 export PATH="./pythonenv/bin:$PATH"
 
-source ~/.dotfiles/zsh/zshrc.local
-
-#source ~/.fonts/*.sh
-
-# Import colorscheme from 'wal' asynchronously
-# &   # Run the process in the background.
-# ( ) # Hide shell job control messages.
-#(cat ~/.cache/wal/sequences &)
-
-# Alternative (blocks terminal for 0-3ms)
-#cat ~/.cache/wal/sequences
-
-# To add support for TTYs this line can be optionally added.
-#source ~/.cache/wal/colors-tty.sh
-
-#eval "$(ssh-agent)"
-
 alias pydoc='python -m pydoc'
 
 export REDIS_HOST=127.0.0.1
@@ -90,9 +71,18 @@ autoload -Uz compinit && compinit
 compinit
 
 complete -C '/usr/local/bin/aws_completer' aws
-source /usr/local/share/chruby/chruby.sh
+source /usr/share/chruby/chruby.sh
 export COMPOSE_FILE=~/code/musashi/docker-compose-full.yml
 export PATH=/home/matt/.poetry/bin:./pythonenv/bin:./bin:/home/matt/.local/bin:/home/matt/bin:/usr/local/bin:/usr/local/share/npm/bin:/usr/local/mysql/bin:/home/matt/.cargo/bin:/home/matt/.local/kitty.app/bin:/usr/local/sbin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/usr/local/go/bin
 
 chruby ruby 3.0.6
+
 alias vim=lvim
+
+setxkbmap -option ctrl:swap_lalt_lctl
+
+alias de="docker exec -it musashi-web-1 "
+alias deb="docker exec -it musashi-web-1 bundle exec "
+alias det="docker exec -e DATABASE_URL="postgres://musashi:san@database/test_ue" -e RAILS_ENV=test -it musashi-web-1 "
+alias detb="docker exec -e RAILS_ENV=test -it musashi-web-1 bundle exec "
+source /usr/share/nvm/init-nvm.sh
